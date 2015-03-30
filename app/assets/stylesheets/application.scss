@@ -13,6 +13,8 @@ html {
 body {
   height: 100%;
   background-color: #263238;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 a {
@@ -47,21 +49,39 @@ a {
     top: 50%;
     transform: translateY(-50%);
 
-    @media(min-width:768px) {
+    @media(min-width: $screen-sm-min) {
       padding-right: 200px;
     }
 
-    @media(max-width:767px) {
+    @media(max-width: $screen-xs-max) {
       .masthead-text {
         padding-top: 20px;
         text-align: center;
+        font-size: 0.8em;
+        line-height: 1.2em;
       }
+    }
+
+    @media(max-width: $screen-xs-max) {
+      .masthead-image img {
+        width: 250px;
+      }
+    }
+
+    .masthead-heading {
+      font-size: 1.2em;
+      font-weight: 500;
     }
 
     .masthead-image {
       text-align: center;
     }
   }
+}
+
+.text-section {
+  padding-top: 2.0em;
+  padding-bottom: 2.0em;
 }
 
 .footer {
