@@ -1,9 +1,32 @@
 !!!
 %html
   %head
-    %title RatTrace
+    %title= content_for?(:page_title) ? yield(:page_title) : 'Rat Trace'
+    - if content_for?(:page_description)
+      %meta{name: 'description', content: yield(:page_description)}
     = stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track' => true)
     = javascript_include_tag('application', 'data-turbolinks-track' => true)
     = csrf_meta_tags
   %body
-    = yield
+    .wrapper
+      .container
+        %nav.navbar.navbar-default
+          .container-fluid.navbar-header-container
+            .navbar-header
+              %a.navbar-brand{href: root_url} Rat Trace
+      %main
+        = yield
+    %footer.footer
+      .container
+        .row
+          .col-md-4
+            %ul{style: "list-style: none; padding: 0;"}
+              %li= link_to "Home", root_url
+          .col-md-5
+          .col-md-3
+            Rat Trace is a project by
+            = succeed(",") do
+              - link_to "Aiden Nibali", "http://aiden.nibali.org/"
+            an undergraduate student at
+            = succeed(".") do
+              - link_to "La Trobe University", "http://www.latrobe.edu.au/"

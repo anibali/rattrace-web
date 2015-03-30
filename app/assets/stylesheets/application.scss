@@ -1,0 +1,79 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// http://www.google.com/design/spec/style/color.html#color-color-palette
+// ("Red" and "Blue Grey")
+
+$footer-height: 120px;
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: #263238;
+}
+
+a {
+  color: #F44336;
+}
+
+.wrapper {
+  background-color: #ECEFF1;
+}
+
+.navbar {
+  border: none;
+  background: none;
+  margin: 0;
+
+  .navbar-header-container {
+    padding-left: 0;
+  }
+}
+
+.masthead {
+  color: #FFEBEE;
+  background-color: #F44336;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  height: 350px;
+  line-height: 1.3em;
+  font-size: 24px;
+
+  .masthead-inner {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @media(min-width:768px) {
+      padding-right: 200px;
+    }
+
+    @media(max-width:767px) {
+      .masthead-text {
+        padding-top: 20px;
+        text-align: center;
+      }
+    }
+
+    .masthead-image {
+      text-align: center;
+    }
+  }
+}
+
+.footer {
+  color: #90A4AE;
+  font-size: 0.9em;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: $footer-height;
+  bottom: 0;
+
+  a {
+    color: #CFD8DC;
+  }
+}
