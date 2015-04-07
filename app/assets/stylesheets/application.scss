@@ -4,8 +4,6 @@
 // http://www.google.com/design/spec/style/color.html#color-color-palette
 // ("Red" and "Blue Grey")
 
-$footer-height: 120px;
-
 html {
   height: 100%;
 }
@@ -45,12 +43,11 @@ a {
   font-size: 24px;
 
   .masthead-inner {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-
     @media(min-width: $screen-sm-min) {
       padding-right: 200px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     @media(max-width: $screen-xs-max) {
@@ -90,7 +87,7 @@ a {
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
-  height: $footer-height;
+  height: 120px;
   bottom: 0;
 
   a {
