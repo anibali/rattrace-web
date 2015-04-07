@@ -22,11 +22,31 @@
     %footer.footer
       .container
         .row
-          .col-md-4
-            %ul{style: "list-style: none; padding: 0;"}
-              %li= link_to "Home", root_url
-          .col-md-5
-          .col-md-3
+          .col-sm-9
+            .row
+              .col-xs-3
+                %span.link-list-heading Rat Trace
+                %ul.link-list
+                  %li= link_to "Home", root_url
+                  %li= link_to "About us", root_url
+              .col-xs-3
+                %span.link-list-heading Product
+                %ul.link-list
+                  %li
+                    %a{href: "#"} Features
+                  %li
+                    %a{href: "#"} Pricing
+              .col-xs-3
+                %span.link-list-heading Support
+                %ul.link-list
+                  %li
+                    %a{href: "#"} Contact
+              .col-xs-3
+                %span.link-list-heading Members
+                %ul.link-list
+                  %li
+                    %a{href: "#"} Log in
+          .col-sm-3
             Rat Trace is a project by
             = succeed(",") do
               - link_to "Aiden Nibali", "http://aiden.nibali.org/"

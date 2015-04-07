@@ -83,12 +83,22 @@ a {
 
 .footer {
   color: #90A4AE;
-  font-size: 0.9em;
+  font-size: 0.95em;
   width: 100%;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  height: 120px;
+  padding-top: 36px;
+  padding-bottom: 36px;
   bottom: 0;
+
+  .link-list-heading {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: white;
+  }
+
+  .link-list {
+    list-style: none;
+    padding: 0;
+  }
 
   a {
     color: #CFD8DC;
