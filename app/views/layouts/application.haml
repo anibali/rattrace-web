@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= content_for?(:page_title) ? yield(:page_title) : 'Rat Trace'
+    %title= content_for?(:page_title) ? yield(:page_title) : 'RatTrace'
     - if content_for?(:page_description)
       %meta{name: 'description', content: yield(:page_description)}
     = stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track' => true)
@@ -16,7 +16,7 @@
         %nav.navbar.navbar-default
           .container-fluid.navbar-header-container
             .navbar-header
-              %a.navbar-brand{href: root_url} Rat Trace
+              %a.navbar-brand{href: root_url} RatTrace
       %main
         = yield
     %footer.footer
@@ -25,7 +25,7 @@
           .col-sm-9
             .row
               .col-xs-3
-                %span.link-list-heading Rat Trace
+                %span.link-list-heading RatTrace
                 %ul.link-list
                   %li= link_to "Home", root_url
                   %li= link_to "About us", root_url
@@ -47,7 +47,7 @@
                   %li
                     %a{href: "#"} Log in
           .col-sm-3
-            Rat Trace is a project by
+            RatTrace is a project by
             = succeed(",") do
               - link_to "Aiden Nibali", "http://aiden.nibali.org/"
             an undergraduate student at
