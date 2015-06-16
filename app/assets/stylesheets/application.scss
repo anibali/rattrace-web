@@ -36,11 +36,15 @@ a {
 .masthead {
   color: #FFEBEE;
   background-color: #F44336;
+  background: linear-gradient(#E53935, #EF5350);
   padding-top: 32px;
   padding-bottom: 32px;
+  font-size: 24px;
+}
+
+.masthead-thick {
   height: 350px;
   line-height: 1.3em;
-  font-size: 24px;
 
   .masthead-inner {
     @media(min-width: $screen-sm-min) {

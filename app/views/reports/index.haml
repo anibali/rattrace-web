@@ -1,0 +1,24 @@
+.masthead
+  .container
+    %h1 Reports
+    %p
+      A list of all of the automatic trap reports currently stored in the
+      database, grouped by date.
+
+.container.text-section
+  - @reports.group_by{|r| r.created_at.to_date}.each do |date, reports|
+    %h2= date
+    %table.table
+      %tr
+        - Report.column_names.each do |col|
+          %th= col
+      - reports.each do |report|
+        %tr
+          - Report.column_names.each do |col|
+            - if col == "original_message"
+              %td
+                = report[col]
+                %br
+                %small= Base64.decode64(report[col]).inspect
+            - else
+              %td= report[col]
