@@ -80,9 +80,13 @@ a {
   }
 }
 
-.text-section {
+.text-section-no-flowtype {
   padding-top: 2.0em;
   padding-bottom: 2.0em;
+}
+
+.text-section {
+  @extend .text-section-no-flowtype;
 }
 
 .footer {

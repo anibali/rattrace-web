@@ -44,8 +44,12 @@
               .col-xs-3
                 %span.link-list-heading Members
                 %ul.link-list
-                  %li
-                    %a{href: "#"} Log in
+                  - if user_signed_in?
+                    %li= link_to "Log out", destroy_user_session_url, method: 'delete'
+                    %li= link_to "Edit account", edit_user_registration_path
+                  - else
+                    %li= link_to "Sign up", new_user_registration_path
+                    %li= link_to "Log in", new_user_session_url
           .col-sm-3
             RatTrace is a project by
             = succeed(",") do

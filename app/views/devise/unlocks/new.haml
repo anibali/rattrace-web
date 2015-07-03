@@ -1,0 +1,12 @@
+.masthead
+  .container
+    %h1 Resend unlock instructions
+
+.container.text-section-no-flowtype
+  %row
+    .col-md-6.col-md-offset-3
+      = bootstrap_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+        = f.email_field :email, autofocus: true
+        = f.submit "Resend unlock instructions"
+      %br
+      = render "devise/shared/links"

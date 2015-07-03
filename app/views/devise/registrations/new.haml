@@ -1,0 +1,14 @@
+.masthead
+  .container
+    %h1 Sign up
+
+.container.text-section-no-flowtype
+  %row
+    .col-md-6.col-md-offset-3
+      = bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.email_field :email, autofocus: true
+        = f.password_field :password, autocomplete: "off"
+        = f.password_field :password_confirmation, autocomplete: "off"
+        = f.submit "Sign up"
+      %br
+      = render "devise/shared/links"

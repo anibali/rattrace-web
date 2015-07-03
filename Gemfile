@@ -22,6 +22,10 @@ gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.4'
 # Use High Voltage for static pages
 gem 'high_voltage', '~> 2.2.1'
+# Use Devise for user authentication
+gem 'devise'
+# Bootstrap form helper
+gem 'bootstrap_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
