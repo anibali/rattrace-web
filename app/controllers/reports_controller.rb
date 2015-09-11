@@ -2,8 +2,8 @@ class ReportsController < ApplicationController
   UDP_SERVER_ACTIONS = [:create]
 
   skip_before_filter :verify_authenticity_token, only: UDP_SERVER_ACTIONS
-  http_basic_authenticate_with name: "udp_server",
-    password: "super_secret_password", only: UDP_SERVER_ACTIONS
+  http_basic_authenticate_with name: ENV['UDP_USER'],
+    password: ENV['UDP_PASS'], only: UDP_SERVER_ACTIONS
   before_action :authenticate_user!, except: UDP_SERVER_ACTIONS
 
   def create
