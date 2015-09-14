@@ -3,8 +3,7 @@
 Whenever the dependencies in Gemfile change, a new Gemfile.lock file should be
 created using the following command:
 
-    $ docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app ruby:2.2 \
-      bundle install
+    $ docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app ruby:2.2 bundle install
 
 ## Building Docker image
 
