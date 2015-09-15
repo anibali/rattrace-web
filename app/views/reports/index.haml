@@ -1,9 +1,10 @@
-.masthead
-  .container
-    %h1 Reports
-    %p
-      A list of all of the automatic trap reports currently stored in the
-      database, grouped by date.
+- content_for :heading do
+  .masthead
+    .container
+      %h1 Reports
+      %p
+        A list of all of the automatic trap reports currently stored in the
+        database, grouped by date.
 
 .container.text-section
   - @reports.group_by{|r| r.created_at.to_date}.each do |date, reports|

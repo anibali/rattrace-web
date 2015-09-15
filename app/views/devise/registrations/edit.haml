@@ -1,6 +1,7 @@
-.masthead
-  .container
-    %h1 Edit #{resource_name.to_s.humanize}
+- content_for :heading do
+  .masthead
+    .container
+      %h1 Edit #{resource_name.to_s.humanize}
 
 .container.text-section-no-flowtype
   %row

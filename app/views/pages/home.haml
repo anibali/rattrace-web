@@ -1,14 +1,15 @@
-.masthead.masthead-thick
-  .container.masthead-inner
-    .row
-      .col-sm-8.masthead-image
-        %img{src: image_url("masthead_rat.png")}
-      .col-sm-4.masthead-text
-        %p.masthead-heading
-          RatTrace
-        %p
-          An intelligent rat trap monitoring solution for the next generation of
-          pest control.
+- content_for :heading do
+  .masthead.masthead-thick
+    .container.masthead-inner
+      .row
+        .col-sm-8.masthead-image
+          %img{src: image_url("masthead_rat.png")}
+        .col-sm-4.masthead-text
+          %p.masthead-heading
+            RatTrace
+          %p
+            An intelligent rat trap monitoring solution for the next generation of
+            pest control.
 
 .container.text-section
   %p

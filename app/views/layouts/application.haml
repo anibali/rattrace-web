@@ -18,6 +18,9 @@
             .navbar-header
               %a.navbar-brand{href: root_url} RatTrace
       %main
+        = content_for :heading
+        .container
+          - flash_messages
         = yield
     %footer.footer
       .container
