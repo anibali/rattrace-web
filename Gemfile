@@ -61,6 +61,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   # Use Factory Girl for setting up test data
-  gem 'factory_girl'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
