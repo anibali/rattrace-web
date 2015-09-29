@@ -4,6 +4,8 @@ class ReportChunk < ActiveRecord::Base
     bait_level:     2
   }.freeze
 
+  belongs_to :trap
+
   validates_presence_of :trap_id, :chunk_type, :timestamp, :data
   validates_uniqueness_of :timestamp, scope: [:trap_id, :chunk_type]
 
