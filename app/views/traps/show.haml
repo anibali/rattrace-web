@@ -1,0 +1,10 @@
+- content_for :heading do
+  .masthead
+    .container
+      %h1= "Trap ##{@trap.id}"
+      %p
+        A summary of information about this trap.
+
+.container.text-section
+  %h2 Bait level history
+  = high_chart("bait_chart", @bait_chart)

@@ -26,6 +26,8 @@ gem 'high_voltage', '~> 2.2.1'
 gem 'devise'
 # Bootstrap form helper
 gem 'bootstrap_form'
+# Pretty Javascript graphs
+gem 'lazy_high_charts'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
