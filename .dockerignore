@@ -1,0 +1,13 @@
+.dockerignore
+
+.git
+.gitignore
+
+.bundle
+
+*.sqlite3
+*.sqlite3-journal
+
+log/*
+!.keep
+tmp
