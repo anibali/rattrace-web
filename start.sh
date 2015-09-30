@@ -7,7 +7,9 @@ bundle install
 bundler_exit_code=$?
 
 if [[ $bundler_exit_code == 0 ]]; then
-  rake assets:precompile --trace
+  if [[ "$RAILS_ENV" == "production" ]]; then
+    rake assets:precompile --trace
+  fi
   bundle exec whenever --update-crontab
   rails server -b "0.0.0.0"
 else
