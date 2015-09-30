@@ -7,6 +7,6 @@
 
 .container.text-section
   %h2 Bait level history
-  = high_chart("bait_chart", @bait_chart)
+  = bait_level_chart(@report_chunks)
   %h2 Battery level history
-  = high_chart("battery_chart", @battery_chart)
+  = battery_level_chart(@report_chunks)
