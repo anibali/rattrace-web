@@ -1,15 +1,21 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the TrapsHelper. For example:
-#
-# describe TrapsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe TrapsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'bait_level_chart' do
+    it 'returns Highcharts code to embed in HTML' do
+      chart = helper.bait_level_chart([])
+
+      expect(chart).to match(/^<.*>.*<\/.*>$/);
+      expect(chart).to match(/new Highcharts/)
+    end
+  end
+
+  describe 'battery_level_chart' do
+    it 'returns Highcharts code to embed in HTML' do
+      chart = helper.battery_level_chart([])
+
+      expect(chart).to match(/^<.*>.*<\/.*>$/);
+      expect(chart).to match(/new Highcharts/)
+    end
+  end
 end
