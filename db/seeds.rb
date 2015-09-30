@@ -3,6 +3,13 @@
 
 random = Random.new(42069)
 
+user = User.new(
+  email: 'admin@example.com',
+  password: 'password')
+user.password_confirmation = user.password
+user.skip_confirmation!
+user.save!
+
 trap = Trap.create(id: 1234)
 
 1.upto(2).each do |bait_id|
