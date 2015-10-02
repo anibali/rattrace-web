@@ -14,9 +14,21 @@
     .wrapper
       .container
         %nav.navbar.navbar-default
-          .container-fluid.navbar-header-container
+          .container-fluid
             .navbar-header
-              %a.navbar-brand{href: root_url} RatTrace
+              %a.navbar-brand{href: root_url}
+                %span.glyphicon.glyphicon-home
+                %span{style: 'padding-left: 8px;'} RatTrace
+              %button.navbar-toggle.collapsed{type: "button", "data-toggle": "collapse", "data-target": "#nav-collapse-1"}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+            - if user_signed_in?
+              %div#nav-collapse-1.collapse.navbar-collapse
+                .nav.navbar-nav.navbar-right
+                  %p.navbar-text
+                    Signed in as
+                    = link_to current_user.email, edit_user_registration_url(current_user)
       %main
         = content_for :heading
         .container
@@ -49,9 +61,9 @@
                 %ul.link-list
                   - if user_signed_in?
                     %li= link_to "Log out", destroy_user_session_url, method: 'delete'
-                    %li= link_to "Edit account", edit_user_registration_path
+                    %li= link_to "Edit account", edit_user_registration_url
                   - else
-                    %li= link_to "Sign up", new_user_registration_path
+                    %li= link_to "Sign up", new_user_registration_url
                     %li= link_to "Log in", new_user_session_url
           .col-sm-3
             RatTrace is a project by

@@ -13,7 +13,7 @@ user.save!
 trap = Trap.create(id: 1234)
 
 1.upto(2).each do |bait_id|
-  bait_level = 1.0 - 0.2 * bait_id
+  bait_level = 1.0 - 0.2 * (bait_id - 1)
   10.times do |i|
     trap.report_chunks.create(
       chunk_type: ReportChunk::CHUNK_TYPES[:bait_level],

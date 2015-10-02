@@ -13,6 +13,7 @@ body {
   background-color: #263238;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  font-size: 16px;
 }
 
 a {
@@ -31,10 +32,6 @@ a {
   border: none;
   background: none;
   margin: 0;
-
-  .navbar-header-container {
-    padding-left: 0;
-  }
 }
 
 .masthead {
@@ -43,7 +40,7 @@ a {
   background: linear-gradient(#E53935, #EF5350);
   padding-top: 32px;
   padding-bottom: 32px;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .masthead-thick {
@@ -91,6 +88,7 @@ a {
 
 .text-section {
   @extend .text-section-no-flowtype;
+  line-height: 1.8;
 }
 
 .footer {

@@ -8,8 +8,8 @@
 ready = ->
   $('.text-section').flowtype
     minFont: 12
-    maxFont: 20
-    fontRatio: 20
+    maxFont: 26
+    fontRatio: 24
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

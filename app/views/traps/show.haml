@@ -6,6 +6,19 @@
         A summary of information about this trap.
 
 .container.text-section
+  %h2 Quick stats
+  .panel.panel-default.table-responsive
+    %table.table
+      %thead
+        %tr
+          %th Battery
+          %th Bait
+          %th Last report
+      %tbody
+        %tr
+          %td= "%.2f%%" % [@report_chunks.where(chunk_type: ReportChunk::CHUNK_TYPES[:battery_level]).order("timestamp").last.data[:level] * 100]
+          %td= "%.2f%%" % [@report_chunks.where(chunk_type: ReportChunk::CHUNK_TYPES[:bait_level]).order("timestamp").group_by{|chunk| chunk.data[:bait_id]}.map{|k, vs| [k, vs.last.data[:level]]}.sort_by(&:second).first.second * 100]
+          %td= @report_chunks.select("timestamp").order("timestamp").last.timestamp
   %h2 Bait level history
   = bait_level_chart(@report_chunks)
   %h2 Battery level history
