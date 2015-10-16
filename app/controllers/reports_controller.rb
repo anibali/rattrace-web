@@ -8,7 +8,19 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
+
+    unless Trap.where(id: @report.trap_id).any?
+      Trap.create(id: @report.trap_id)
+    end
+
     @report.save
+
+    params.fetch(:chunks, []).each do |chunk_hash|
+      report_chunk = ReportChunk.new(chunk_params(chunk_hash).merge(trap_id: @report.trap_id))
+      if report_chunk.valid?
+        report_chunk.save
+      end
+    end
 
     render plain: "OK"
   end
@@ -19,6 +31,17 @@ class ReportsController < ApplicationController
 
   private
   def report_params
-    params.require(:report).permit(:original_message, :trap_id)
+   params.require(:report).permit(
+     :original_message, :protocol_version, :trap_id, :sent_at)
+  end
+
+  def chunk_params(hash)
+    ActionController::Parameters.new(chunk: hash).require(:chunk)
+      .tap do |whitelisted|
+        [:chunk_type, :generated_at, :data].each do |key|
+          whitelisted[key] = hash[key]
+        end
+      end
+      .permit!
   end
 end

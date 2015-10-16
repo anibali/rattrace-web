@@ -5,6 +5,6 @@ class TrapsController < ApplicationController
     @trap = Trap.find(params[:id])
 
     @report_chunks = @trap.report_chunks
-      .where('timestamp >= ?', 1.year.ago)
+      .where('generated_at >= ?', 1.year.ago)
   end
 end

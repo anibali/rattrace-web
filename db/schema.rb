@@ -19,15 +19,17 @@ ActiveRecord::Schema.define(version: 20150929053504) do
   create_table "report_chunks", force: :cascade do |t|
     t.integer  "trap_id"
     t.integer  "chunk_type"
-    t.datetime "timestamp"
+    t.datetime "generated_at"
     t.text     "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "reports", force: :cascade do |t|
     t.text     "original_message"
+    t.integer  "protocol_version"
     t.integer  "trap_id"
+    t.datetime "sent_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

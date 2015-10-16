@@ -3,7 +3,7 @@ module TrapsHelper
     bait_data = report_chunks
       .select {|chunk| chunk.chunk_type == ReportChunk::CHUNK_TYPES[:bait_level]}
       .map do |chunk|
-        [chunk.data[:bait_id], chunk.timestamp.to_i * 1000, chunk.data[:level] * 100]
+        [chunk.data[:bait_id], chunk.generated_at.to_i * 1000, chunk.data[:level]]
       end
       .group_by(&:first)
       .map do |(bait_id, rows)|
@@ -25,11 +25,11 @@ module TrapsHelper
     battery_data = report_chunks
       .select {|chunk| chunk.chunk_type == ReportChunk::CHUNK_TYPES[:battery_level]}
       .map do |chunk|
-        [chunk.timestamp.to_i * 1000, chunk.data[:level] * 100]
+        [chunk.generated_at.to_i * 1000, chunk.data[:level] / 1000.0]
       end
 
     graph = time_series_graph do |f|
-      f.yAxis title: {text: 'Battery level (%)'}, min: 0, max: 100
+      f.yAxis title: {text: 'Battery level (V)'}, min: 0, max: 6
       f.legend enabled: false
       f.series(type: 'area', data: battery_data)
     end

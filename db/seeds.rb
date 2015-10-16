@@ -17,8 +17,8 @@ trap = Trap.create(id: 1234)
   10.times do |i|
     trap.report_chunks.create(
       chunk_type: ReportChunk::CHUNK_TYPES[:bait_level],
-      timestamp: Time.new(2015, 8, 1) + i.days + bait_id.minutes,
-      data: {bait_id: bait_id, level: bait_level})
+      generated_at: Time.new(2015, 8, 1) + i.days + bait_id.minutes,
+      data: {bait_id: bait_id, level: bait_level * 100})
     bait_level -= 0.05 + 0.05 * random.rand
     bait_level = 0 if bait_level < 0
   end
@@ -28,8 +28,8 @@ battery_level = 1.0
 10.times do |i|
   trap.report_chunks.create(
     chunk_type: ReportChunk::CHUNK_TYPES[:battery_level],
-    timestamp: Time.new(2015, 8, 1) + i.days,
-    data: {level: battery_level})
+    generated_at: Time.new(2015, 8, 1) + i.days,
+    data: {level: battery_level * 5500})
   battery_level -= 0.01 + 0.005 * random.rand
   battery_level = 0 if battery_level < 0
 end
