@@ -1,3 +1,13 @@
-Hello
+%p
+  You have
+  = pluralize(@trap_alerts.size, 'trap that requires', 'traps that require')
+  attention.
 
-= @trap_alerts.inspect
+%ul
+  - @trap_alerts.each do |trap_id, alerts|
+    %li
+      = link_to trap_id, trap_url(trap_id)
+      \-
+      Last report was
+      = distance_of_time_in_words(Time.now, alerts.first[:last_report_at])
+      ago.

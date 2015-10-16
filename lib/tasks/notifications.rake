@@ -3,6 +3,6 @@ namespace :notifications do
   task send: :environment do
     notifier = Notifier.new
     notifier.send_notifications
-    puts "Finished mailout"
+    puts 'Finished mailout'
   end
 end
