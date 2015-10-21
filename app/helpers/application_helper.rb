@@ -17,4 +17,8 @@ module ApplicationHelper
     end
     nil
   end
+
+  def pretty_time(time)
+    time.in_time_zone("Australia/Melbourne").strftime("%B %e, %Y %l:%M%P")
+  end
 end

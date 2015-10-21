@@ -8,6 +8,4 @@
     %li
       = link_to trap_id, trap_url(trap_id)
       \-
-      Last report was
-      = distance_of_time_in_words(Time.now, alerts.first[:last_report_at])
-      ago.
+      = alerts.join(', ').capitalize

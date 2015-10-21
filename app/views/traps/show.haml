@@ -16,9 +16,9 @@
           %th Last report
       %tbody
         %tr
-          %td= "%.2fV" % [@report_chunks.where(chunk_type: ReportChunk::CHUNK_TYPES[:battery_level]).order("generated_at").last.data[:level] / (1000.0)]
-          %td= "%.2f%%" % [@report_chunks.where(chunk_type: ReportChunk::CHUNK_TYPES[:bait_level]).order("generated_at").group_by{|chunk| chunk.data[:bait_id]}.map{|k, vs| [k, vs.last.data[:level]]}.sort_by(&:second).first.second]
-          %td= @report_chunks.select("generated_at").order("generated_at").last.generated_at
+          %td= "%.2fV" % [@trap.battery_level]
+          %td= "%.2f%%" % [@trap.bait_level]
+          %td= pretty_time(@trap.last_report.sent_at)
   %h2 Bait level history
   = bait_level_chart(@report_chunks)
   %h2 Battery level history

@@ -12,24 +12,28 @@ user.save!
 
 trap = Trap.create(id: 1234)
 
-1.upto(2).each do |bait_id|
-  bait_level = 1.0 - 0.2 * (bait_id - 1)
-  10.times do |i|
+bait_level = 100.0
+battery_level = 5500.0
+
+10.times do |i|
+  time = Time.new(2015, 8, 1) + i.days
+
+  report = trap.reports.create(sent_at: time + 5.minutes)
+
+  1.upto(2).each do |bait_id|
     trap.report_chunks.create(
       chunk_type: ReportChunk::CHUNK_TYPES[:bait_level],
-      generated_at: Time.new(2015, 8, 1) + i.days + bait_id.minutes,
-      data: {bait_id: bait_id, level: bait_level * 100})
-    bait_level -= 0.05 + 0.05 * random.rand
-    bait_level = 0 if bait_level < 0
+      generated_at: time + bait_id.minutes,
+      data: {bait_id: bait_id, level: (bait_level - (2 * random.rand + 3) * bait_id)})
   end
-end
 
-battery_level = 1.0
-10.times do |i|
   trap.report_chunks.create(
     chunk_type: ReportChunk::CHUNK_TYPES[:battery_level],
     generated_at: Time.new(2015, 8, 1) + i.days,
-    data: {level: battery_level * 5500})
-  battery_level -= 0.01 + 0.005 * random.rand
+    data: {level: battery_level})
+
+  bait_level -= 5 + 5 * random.rand
+  bait_level = 0 if bait_level < 0
+  battery_level -= 55 + 20 * random.rand
   battery_level = 0 if battery_level < 0
 end
