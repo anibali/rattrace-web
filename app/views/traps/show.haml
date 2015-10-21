@@ -23,3 +23,6 @@
   = bait_level_chart(@report_chunks)
   %h2 Battery level history
   = battery_level_chart(@report_chunks)
+  %p
+    %div.pull-right
+      = button_to "Delete all data", trap_url(@trap), data: { confirm: "Permanently delete all data for this trap?" }, method: :delete, class: "btn btn-danger"

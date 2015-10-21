@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :reports
 
-  resources :traps, only: [:show]
+  resources :traps
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

@@ -13,3 +13,6 @@ ready = ->
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
+
+# Configure Highcharts to use local time
+Highcharts.setOptions({global: {useUTC: false}})

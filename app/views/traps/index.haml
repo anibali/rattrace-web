@@ -1,0 +1,11 @@
+- content_for :heading do
+  .masthead
+    .container
+      %h1= "Traps"
+      %p
+        A list of all traps with data available.
+
+.container.text-section
+  %ul
+    - @traps.each do |trap|
+      %li= link_to "Trap ##{trap.id}", trap_url(trap)
