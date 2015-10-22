@@ -75,7 +75,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = {host: 'rattrace.nibali.org'}
+  config.action_mailer.default_url_options = {host: 'rattrace.com.au'}
   config.action_mailer.delivery_method = :smtp
 
   if ENV['USE_MAILCATCHER'].present?

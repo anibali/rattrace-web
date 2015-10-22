@@ -49,10 +49,13 @@ a {
 
   .masthead-inner {
     @media(min-width: $screen-sm-min) {
-      padding-right: 200px;
       position: relative;
       top: 50%;
       transform: translateY(-50%);
+    }
+
+    @media(min-width: $screen-md-min) {
+      padding-right: 200px;
     }
 
     @media(max-width: $screen-xs-max) {
