@@ -10,6 +10,7 @@ class TrapsController < ApplicationController
 
     @report_chunks = @trap.report_chunks
       .where('generated_at >= ?', 1.year.ago)
+      .order('generated_at')
   end
 
   def destroy

@@ -77,11 +77,19 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = {host: 'rattrace.nibali.org'}
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    port:       587,
-    address:    'smtp.mailgun.org',
-    domain:     ENV['SMTP_DOMAIN'],
-    user_name:  ENV['SMTP_USER'],
-    password:   ENV['SMTP_PASS']
-  }
+
+  if ENV['USE_MAILCATCHER'].present?
+    config.action_mailer.smtp_settings = {
+      address:    ENV['MAILCATCHER_PORT_1025_TCP_ADDR'],
+      port:       ENV['MAILCATCHER_PORT_1025_TCP_PORT']
+    }
+  else
+    config.action_mailer.smtp_settings = {
+      port:       587,
+      address:    'smtp.mailgun.org',
+      domain:     ENV['SMTP_DOMAIN'],
+      user_name:  ENV['SMTP_USER'],
+      password:   ENV['SMTP_PASS']
+    }
+  end
 end

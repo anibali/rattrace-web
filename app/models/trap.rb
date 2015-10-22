@@ -5,16 +5,18 @@ class Trap < ActiveRecord::Base
   def battery_level
     report_chunks
       .where(chunk_type: ReportChunk::CHUNK_TYPES[:battery_level])
-      .order("generated_at")
-      .last.data[:level] / 1000.0
+      .order('generated_at DESC')
+      .limit(1)
+      .first.data[:level] / 1000.0
   end
 
   def bait_level
     report_chunks
       .where(chunk_type: ReportChunk::CHUNK_TYPES[:bait_level])
-      .order("generated_at")
+      .order('generated_at DESC')
+      .limit(10) # WARNING: This makes assumptions
       .group_by{|chunk| chunk.data[:bait_id]}
-      .map{|k, vs| [k, vs.last.data[:level]]}
+      .map{|k, vs| [k, vs.first.data[:level]]}
       .sort_by(&:second).first.second
   end
 
