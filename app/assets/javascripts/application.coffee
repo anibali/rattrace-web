@@ -2,6 +2,7 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require bootstrap-sprockets
+#= require flowtype.min
 #= require_tree .
 #= require highcharts/highcharts
 

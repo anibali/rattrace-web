@@ -16,7 +16,7 @@ bait_level = 100.0
 battery_level = 5500.0
 
 10.times do |i|
-  time = Time.new(2015, 8, 1) + i.days
+  time = Time.new(2015, 10, 17) + i.days
 
   report = trap.reports.create(sent_at: time + 5.minutes)
 

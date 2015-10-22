@@ -9,8 +9,11 @@ class Notifier
       trap_alerts[trap.id] = alerts unless alerts.blank?
     end
 
-    User.all.each do |user|
-      NotificationMailer.notification_email(user, trap_alerts).deliver_now
+    unless trap_alerts.empty?
+      User.all.each do |user|
+        email = NotificationMailer.notification_email(user, trap_alerts)
+        email.deliver_now
+      end
     end
   end
 
@@ -20,13 +23,12 @@ class Notifier
 
     last_report = trap.last_report
     if last_report.present? && last_report.sent_at < 3.days.ago
-      alerts <<
-        "quiet since #{distance_of_time_in_words(Time.now, last_report.sent_at)} ago"
+      time_distance = distance_of_time_in_words(Time.now, last_report.sent_at)
+      alerts << "quiet since #{time_distance} ago"
     end
 
     if trap.bait_level < 20
-      alerts <<
-        ("bait level at %.2f%%" % [trap.bait_level])
+      alerts << ("bait level at %.2f%%" % [trap.bait_level])
     end
 
     if trap.battery_level < 4.2

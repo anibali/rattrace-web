@@ -1,3 +1,7 @@
+/*
+ *= require roboto_font
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -85,8 +89,8 @@ a {
 }
 
 .text-section-no-flowtype {
-  padding-top: 2.0em;
-  padding-bottom: 2.0em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 .text-section {
