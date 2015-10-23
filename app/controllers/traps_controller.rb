@@ -17,6 +17,7 @@ class TrapsController < ApplicationController
     @trap = Trap.find(params[:id])
     @trap.destroy
 
+    flash[:notice] = "Data for trap ##{params[:id]} deleted successfully."
     redirect_to action: :index
   end
 end
